@@ -1,25 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import {PaperProvider, MD3DarkTheme, adaptNavigationTheme} from "react-native-paper";
 import {SafeAreaProvider} from "react-native-safe-area-context/src/SafeAreaContext";
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {
-    NAV_CHARACTER_DETAILS,
+    NAV_CHARACTER_DETAILS, NAV_CHARACTER_EDIT,
     NAV_HOME,
     NAV_MAKECHARACTER,
-    NAV_POINTBUY,
     NAV_RACESINFO,
     NAV_VIEWCHARACTERS
 } from "./navigation_constants";
 import {HomeScreen} from "./screens/HomeScreen";
 import {ViewCharactersScreen} from "./screens/ViewCharactersScreen";
-import {PointBuyScreen} from "./screens/PointBuyScreen";
 import {RaceInfoScreen} from "./screens/RaceInfoScreen";
 import {MakeCharacterScreen} from "./screens/MakeCharacterScreen";
 import {CharacterProvider} from "./contexts/CharactersContext";
 import {CharacterDetailsScreen} from "./screens/CharacterDetailsScreen";
 import {RaceProvider} from "./contexts/RacesContext";
+import {EditCharacterScreen} from "./screens/EditCharacterScreen";
 
 const theme = {
     ...MD3DarkTheme,
@@ -77,8 +74,8 @@ function ProvideApp(){
                 <Stack.Screen name={NAV_VIEWCHARACTERS} component={ViewCharactersScreen} options={{headerStyle: {backgroundColor: "rgb(63, 45, 23)",}, headerTitleStyle: {fontWeight: 'bold',},}}/>
                 <Stack.Screen name={NAV_MAKECHARACTER} component={MakeCharacterScreen} options={{headerStyle: {backgroundColor: "rgb(63, 45, 23)",}, headerTitleStyle: {fontWeight: 'bold',},}}/>
                 <Stack.Screen name={NAV_RACESINFO} component={RaceInfoScreen} options={{headerStyle: {backgroundColor: "rgb(63, 45, 23)",}, headerTitleStyle: {fontWeight: 'bold',},}}/>
-                <Stack.Screen name={NAV_POINTBUY} component={PointBuyScreen} options={{headerStyle: {backgroundColor: "rgb(63, 45, 23)",}, headerTitleStyle: {fontWeight: 'bold',},}}/>
                 <Stack.Screen name={NAV_CHARACTER_DETAILS} component={CharacterDetailsScreen} options={{headerStyle: {backgroundColor: "rgb(63, 45, 23)",}, headerTitleStyle: {fontWeight: 'bold',},}}/>
+                <Stack.Screen name={NAV_CHARACTER_EDIT} component={EditCharacterScreen} options={{headerStyle: {backgroundColor: "rgb(63, 45, 23)",}, headerTitleStyle: {fontWeight: 'bold',},}}/>
             </Stack.Navigator>
         </>
     );

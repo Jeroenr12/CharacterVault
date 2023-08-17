@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {FlatList, TouchableOpacity, View, StyleSheet} from "react-native";
+import {FlatList, View, StyleSheet, ImageBackground} from "react-native";
 import {Button, Card, Text} from "react-native-paper";
 import {useCharacterContext} from "../contexts/CharactersContext";
 import {useNavigation} from "@react-navigation/native";
@@ -30,20 +30,22 @@ export function Character({character}){
 export function ViewCharactersScreen(){
             const {characters} = useCharacterContext();
             return(
-                <View style={styles.container}>
-                    <FlatList
-                        data={characters}
-                        keyExtractor={character => character.id}
-                        renderItem={({item}) => <Character character={item}/>}
-                    />
-                </View>
+                <ImageBackground source={require('../assets/images/background.jpg')} resizeMode="cover" style={styles.background}>
+                    <View style={styles.container}>
+                        <FlatList
+                            data={characters}
+                            keyExtractor={character => character.id}
+                            renderItem={({item}) => <Character character={item}/>}
+                        />
+                    </View>
+                </ImageBackground>
+
             );
 }
 
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: "rgb(64, 37, 3)",
         padding: 10,
     },
     box:{
@@ -52,5 +54,10 @@ const styles = StyleSheet.create({
         marginVertical: 2,
         alignContent: "stretch",
 
-    }
+    },
+    background:{
+        flex: 1,
+        justifyContent: 'center',
+    },
+
 })
